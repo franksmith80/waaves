@@ -1,0 +1,31 @@
+$dash-a: 0;
+$gap-a: 0;
+$dash-b: 80;
+$gap-b: 80;
+$offset-total: ($dash-a + $gap-a + $dash-b + $gap-b)*-1;
+body {
+  background-color: rgb(37, 37, 37);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+@keyframes wave {
+  to {stroke-dashoffset: $offset-total;}
+}
+
+svg {
+  width:100%;
+  height: 100%;
+}
+
+path{ 
+  animation: wave 5s infinite linear; 
+  stroke-dasharray: $dash-a, $gap-a, $dash-b, $gap-b;
+  stroke-dashoffset: 0;
+  stroke-width: 2px;
+  stroke: #fff;
+  stroke-linecap: round;
+  fill: none;
+}
